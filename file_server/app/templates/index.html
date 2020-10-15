@@ -10,18 +10,18 @@
     {% for f in files %}
       <li class="collection-item avatar">
         <i class="material-icons circle green">insert_chart</i>
-          <span class="title"><a href="{% url "file_content" name=f.name %}">{{ f.name }}</a></span>
+          <span class="title"><a href="{% url "file_content" file_name=f.name %}">{{ f.name }}</a></span>
         <p>
           Создан: {% if date == f.ctime.date %}
             {{ f.ctime }}
           {% else %}
-            <a href="{% url "file_list" date=f.ctime %}">{{ f.ctime.date }}</a> {{ f.mtime.time }}
+            <a href="{% url "file_list" date=f.ctime.date %}">{{ f.ctime.date }}</a> {{ f.mtime.time }}
           {% endif %}
           <br>
           Изменен: {% if date == f.mtime.date %}
             {{ f.mtime }}
           {% else %}
-            <a href="{% url "file_list" date=f.mtime %}">{{ f.mtime.date }}</a> {{ f.mtime.time }}
+            <a href="{% url "file_list" date=f.mtime.date %}">{{ f.mtime.date }}</a> {{ f.mtime.time }}
           {% endif %}
         </p>
       </li>
